@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUsersTable extends Migration
+class CreateRestsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,12 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('rests', function (Blueprint $table) {
             $table->bigInteger('id',20);
-            $table->string('name',255);
-            $table->string('email',255)->unique();
-            // $table->timestamp('email_verified_at')->nullable();
-            $table->string('password',255);
-            $table->char('rememberToken')->useCurrent()->nullable();
+            $table->int('attendance_id'); # 外部キー
+            $table->foreign('attendance_id')->references('id')->on('attendances')->cascadeOnDelete(); # 外部キー制約をつける
+            $table->time('start_time')->useCurrent()->nullable(); # notnull
+            $table->time('end_time')->useCurrent()->nullable();
             $table->timestamp('created_at')->useCurrent()->nullable();
             $table->timestamp('updated_at')->useCurrent()->nullable();
         });
@@ -32,6 +31,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('rests');
     }
 }
