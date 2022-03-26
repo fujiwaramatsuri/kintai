@@ -19,9 +19,9 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <style>
-        /* ログインテキストボックス */
-        .form-control {
-            display: block;
+    /* ログインテキストボックス */
+.form-control {
+    display: block;
     appearance: none;
     outline: 0;
     border: 1px solid fade(white, 40%);
@@ -34,14 +34,14 @@
     text-align: center;
     font-size: 18px;
     }
-        /* ログインタイトル */
-    .card-header {
+    /* ログインタイトル */
+.card-header {
         text-align:center;
         margin-top:130px;
         margin-bottom:20px;
     }
-        /* ボタン */
-    .btn-primary {
+    /* ボタン */
+.btn-primary {
         display: flex;
         margin:auto;
 		appearance:none;
@@ -57,10 +57,64 @@
 		transition-duration: 0.25s;
         justify-content: center;
     }
-    .nav-item{
-        display: block;
-        text-align:center;
+.nav-item{
+    display: block;
+    text-align:center;
     }
+    /* ヘッダー */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+    padding: 0 30px;
+    background-color: #fff;
+    position: sticky;
+    left: 0;
+    top: 0;
+    z-index: 1;
+}
+.header-nav {
+    /* display: flex; */
+    text-align: right;
+    margin: 0 0 0 auto;
+}
+
+.header-nav-list {
+    display: flex;
+    font-weight: bold;
+    margin: 0 0 0 auto;
+    /* border:1px solid red !important; */
+}
+
+
+.header-nav-item {
+    display: flex;
+    /* margin: 0  0 0 auto; */
+    margin-right: 30px;
+}
+.nav-linkA {
+    margin-left: 700px;
+}
+
+/* ホームボタン */
+.card-body-home{
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+    width: 900px;
+    height: 500px;
+    padding: 10px 15px;
+}
+.home-btn {
+    width: 40%;
+    height: 45%;
+	margin: auto;
+    font-size: 30px;
+}
+ * {
+ /* border:1px solid red !important; */
+}
     </style>
 </head>
 <body>
@@ -97,17 +151,44 @@
                             @endif
 
                         @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
+<!-- header -->
+<heder class="heder">
+    <nav class="heder-nav">
+        <ul class="header-nav-list">
+            <li class="header-nav-item">
+                <a id="navbarDropdown" class="nav-linkA dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                    ホーム
+                </a>
+            </li>
+            <!-- 日付一覧　行先ログアウト状態 -->
+            <li class="header-nav-item">
+                <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
+                    日付一覧
+                </a>
+            </li>
+            <li class="header-nav-item">
+                <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                    ログアウト
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+                            <li class="nav-item dropdown">
+                                <p id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="text" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{Auth::user()->name}}さんお疲れ様です!
+                                </a>
+
+                                <!-- <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown"> -->
+                                    <!-- <a class="dropdown-item" href="{{ route('logout') }}" -->
+                                       <!-- onclick="event.preventDefault(); -->
+                                                     <!-- document.getElementById('logout-form').submit();"> -->
+                                        <!-- {{ __('Logout') }} -->
+                                    <!-- </a> -->
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
