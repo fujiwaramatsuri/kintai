@@ -21,4 +21,12 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-// Route::post('/home', [App/Http/Controller::class,'input'];)
+// 勤務開始
+
+
+// Route::group(['middleware' => 'auth'], function() {
+    Route::post('/start', [App\Http\Controllers\HomeController::class,'start'])->name('start');
+
+
+//　日付一覧
+Route::get('/confilm', [ConfilmController::class, 'index']);
