@@ -7,23 +7,27 @@
             <div class="card">
                 <!-- <div class="card-header">{{ __('Dashboard') }}</div> -->
                 <div class="card-body-home">
-                    <input type="button" class="home-btn"
-                        value="勤務開始" id="buttonA" onclick="
+<!-- 勤務開始 -->
+                <form action="/start" method="POST" class="home-btn A">
+                    @csrf
+                    <input type="submit" 
+                        value="勤務開始" id="user_id" onclick="
                             getElementById('buttonA').disabled = true;
                             getElementById('buttonB').disabled = false;
                             getElementById('buttonC').disabled = true;
                             getElementById('buttonD').disabled = false;">
-                    <input type="button" class="home-btn"
+                    </form>
+                    <input type="submit" class="home-btn D"
                         value="勤務終了"id="buttonD" disabled onclick="
                             getElementById('buttonA').disabled = false;
                             getElementById('buttonB').disabled = true;
                             getElementById('buttonC').disabled = true;
                             getElementById('buttonD').disabled = true;">
-                    <input type="button" class="home-btn"
+                    <input type="submit" class="home-btn B"
                         value="休憩開始"id="buttonB" disabled onclick="
                             getElementById('buttonB').disabled = true;
                             getElementById('buttonC').disabled = false;">
-                    <input type="button" class="home-btn"
+                    <input type="submit" class="home-btn C"
                         value="休憩終了"id="buttonC" disabled onclick="
                             getElementById('buttonB').disabled = false;
                             getElementById('buttonC').disabled = true;">
