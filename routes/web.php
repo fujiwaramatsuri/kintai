@@ -31,5 +31,6 @@ Route::post('/end', [App\Http\Controllers\HomeController::class,'end'])->name('e
 // 休憩開始
 Route::post('/rest_start', [App\Http\Controllers\HomeController::class,'rest_start'])->name('rest_start');
 // 休憩終了
+Route::post('/rest_end', [App\Http\Controllers\HomeController::class,'rest_end'])->name('rest_end');
 //　日付一覧
-Route::get('/confilm', [ConfilmController::class, 'index']);
+Route::get('/confilm', [HomeController::class, 'confilm'])->name('confilm');
