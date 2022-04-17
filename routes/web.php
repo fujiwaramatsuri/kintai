@@ -23,10 +23,13 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 // 勤務開始
 
+// Route::get('/start', [App\Http\Controllers\HomeController::class,'start'])->name('start');
+Route::post('/start', [App\Http\Controllers\HomeController::class,'start'])->name('start');
 
-// Route::group(['middleware' => 'auth'], function() {
-    Route::post('/start', [App\Http\Controllers\HomeController::class,'start'])->name('start');
-
-
+// 勤務終了
+Route::post('/end', [App\Http\Controllers\HomeController::class,'end'])->name('end');
+// 休憩開始
+Route::post('/rest_start', [App\Http\Controllers\HomeController::class,'rest_start'])->name('rest_start');
+// 休憩終了
 //　日付一覧
 Route::get('/confilm', [ConfilmController::class, 'index']);
