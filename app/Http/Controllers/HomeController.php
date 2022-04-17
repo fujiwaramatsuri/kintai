@@ -10,6 +10,7 @@ use App\Models\attendance;
 use App\Models\attendanceend;
 use App\Models\rset;
 use Carbon\Carbon;
+use App\Models\kintai;
 class HomeController extends Controller
 {
     /**
@@ -77,14 +78,20 @@ public function rest_start()
     }
 public function rest_end()
     {
-        $user = Auth::user();//現ユーザー
-        $rests = DB::table('rests')->where('attendance_id', $attendance->id)->where('date', Carbon::today())->latest();
+        $attendance = Auth::user();//現ユーザー
+        $rests = DB::table('rests')->where('attendance_id',$attendance->id)->where('date', Carbon::today())->latest();
         $timestamp =Carbon::now();
         $rests->update([
             'rests_end' => $timestamp,
         ]);
         return redirect('/home');
+    }
 
-
+public function confilm()
+    {
+        $items = DB::select('select * from attendance');
+        $items = DB::select('select * from rests');
+        $items = kintai::Paginate(3);
+        return view('confilm',['items' => $items]);
     }
 }
