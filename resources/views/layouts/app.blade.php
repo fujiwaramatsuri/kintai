@@ -58,7 +58,7 @@
         justify-content: center;
     }
 .nav-item{
-    display: block;
+    /* display: block; */
     text-align:center;
     }
     /* ヘッダー */
@@ -81,20 +81,21 @@
 }
 
 .header-nav-list {
-    display: flex;
+    /* display: flex; */
     font-weight: bold;
-    margin: 0 0 0 auto;
+    text-align: right;
+    /* margin: 0 0 0 auto; */
     /* border:1px solid red !important; */
 }
 
 
 .header-nav-item {
-    display: flex;
+    /* display: flex; */
     /* margin: 0  0 0 auto; */
     margin-right: 30px;
 }
 .nav-linkA {
-    margin-left: 700px;
+    text-align: center;
 }
 
 /* ホームボタン */
@@ -155,31 +156,31 @@
 <heder class="heder">
     <nav class="heder-nav">
         <ul class="header-nav-list">
-            <li class="header-nav-item">
-                <a id="navbarDropdown" class="nav-linkA dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+            <span class="header-nav-item">
+                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                     ホーム
                 </a>
-            </li>
+            </span>
             <!-- 日付一覧　行先ログアウト状態 -->
-            <li class="header-nav-item">
+            <span class="header-nav-item">
                 <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                     日付一覧
                 </a>
-            </li>
-            <li class="header-nav-item">
+            </span>
+            <span class="header-nav-item">
                 <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                     ログアウト
                 </a>
-            </li>
+            </span>
         </ul>
     </nav>
 </header>
-                            <li class="nav-item dropdown">
-                                <p id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="text" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            <!-- <li class="nav-item dropdown"> -->
+                                <p id="navbarDropdown" class="nav-linkA dropdown-toggle" href="#" role="text" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{Auth::user()->name}}さんお疲れ様です!
                                 </a>
 
