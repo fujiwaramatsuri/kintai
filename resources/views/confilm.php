@@ -16,7 +16,7 @@
       text-align: center;
     }
 </style>
-@section('title', '日付一覧')
+@section('title','日付一覧')
 
 @section('content')
 <table>
