@@ -163,9 +163,9 @@
             </span>
             <!-- 日付一覧　行先ログアウト状態 -->
             <span class="header-nav-item">
-                <a class="dropdown-item" href="{{ route('logout') }}"
+                <a class="dropdown-item" href="{{ route('confilm') }}"
                                        onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
+                                                     document.getElementById('confilm-form').submit();">
                     日付一覧
                 </a>
             </span>

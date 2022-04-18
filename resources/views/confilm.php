@@ -39,10 +39,10 @@
       {{$item->end_time}}
     </td>
     <td>
-      {{$item->rests_strat}}
+      {{$rest->rests_strat}}
     </td>
     <td>
-      {{$item->rests_end}}
+      {{$rest->rests_end}}
     </td>
   </tr>
   @endforeach
