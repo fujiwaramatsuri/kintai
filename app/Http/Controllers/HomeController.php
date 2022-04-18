@@ -6,9 +6,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
-use App\Models\attendance;
+use App\Models\Attendance;
 use App\Models\attendanceend;
-use App\Models\rset;
+use App\Models\Rset;
 use Carbon\Carbon;
 use App\Models\kintai;
 class HomeController extends Controller
@@ -89,9 +89,13 @@ public function rest_end()
 
 public function confilm()
     {
-        $items = DB::select('select * from attendance');
-        $items = DB::select('select * from rests');
-        $items = kintai::Paginate(3);
+        $item = Attendance::first();//モデルから取ってくる
+        // $item = DB::table('attendances')->first();
+        // $items = DB::select('select * from attendances')->first();
+        // dd($item);
+        // $rest = DB::select('select * from rests');
+        // dd($rest);
+        $items = attendance::Paginate(3);
         return view('confilm',['items' => $items]);
     }
 }
